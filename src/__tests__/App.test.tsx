@@ -1,8 +1,11 @@
-const add = (a: number, b: number) => a + b;
-describe('App', () => {
-  test('first test', () => {
-    const sum = add(2, 2);
+import React from 'react';
 
-    expect(sum).toBe(4);
+import {create} from 'react-test-renderer';
+
+import App from '../App';
+
+describe('App', () => {
+  test('Should render correctly', () => {
+    create(<App />);
   });
 });
