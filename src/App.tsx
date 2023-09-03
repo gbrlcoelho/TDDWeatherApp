@@ -5,8 +5,8 @@
  * @format
  */
 
-import React from 'react';
 import type {PropsWithChildren} from 'react';
+import React from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -63,7 +63,7 @@ function App(): JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <SafeAreaView style={backgroundStyle} testID="app">
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}

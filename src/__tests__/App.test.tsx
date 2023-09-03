@@ -6,6 +6,8 @@ import App from '../App';
 
 describe('App', () => {
   test('Should render correctly', () => {
-    render(<App />);
+    const {getByTestId} = render(<App />);
+
+    expect(getByTestId('app')).toBeDefined();
   });
 });
