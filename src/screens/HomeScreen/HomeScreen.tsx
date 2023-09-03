@@ -6,7 +6,7 @@ import WeatherCoordinates from '../../components/WeatherCoordinates/WeatherCoord
 import WeatherCurrent from '../../components/WeatherCurrent/WeatherCurrent';
 import {Colors} from './constants';
 
-export const HomeScreen = () => {
+const HomeScreen = () => {
   const now = moment(new Date());
 
   return (
@@ -26,6 +26,8 @@ export const HomeScreen = () => {
     </LinearGradient>
   );
 };
+
+export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {

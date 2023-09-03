@@ -3,7 +3,7 @@ import React from 'react';
 import {View} from 'react-native';
 import WeatherCoordinates from '../../../components/WeatherCoordinates/WeatherCoordinates';
 import WeatherCurrent from '../../../components/WeatherCurrent/WeatherCurrent';
-import {HomeScreen} from '../HomeScreen';
+import HomeScreen from '../HomeScreen';
 
 jest.mock('../../../components/WeatherCurrent/WeatherCurrent.tsx', () =>
   jest.fn().mockReturnValue(null),
