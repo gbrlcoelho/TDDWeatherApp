@@ -8,4 +8,8 @@ describe('WeatherCurrent', () => {
 
     expect(getByTestId('weather-current')).toBeDefined();
   });
+
+  it('Should navigate to Weather screen with location', () => {
+    throw new Error('Not implemented');
+  });
 });
