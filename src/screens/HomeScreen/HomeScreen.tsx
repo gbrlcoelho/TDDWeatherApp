@@ -18,11 +18,11 @@ const HomeScreen = () => {
         <Text style={styles.date}> {now.format('MMM DD, YYYY')}</Text>
         <Text style={styles.day}>{now.format('dddd')}</Text>
       </View>
-      <WeatherCurrent />
+      <WeatherCoordinates />
       <Text testID="home-screen-divider" style={styles.divider}>
         Or
       </Text>
-      <WeatherCoordinates />
+      <WeatherCurrent />
     </LinearGradient>
   );
 };

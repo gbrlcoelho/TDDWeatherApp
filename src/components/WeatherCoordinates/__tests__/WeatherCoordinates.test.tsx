@@ -62,5 +62,93 @@ describe('WeatherCoordinates', () => {
         findByText('Latitude must be a valid number'),
       ).rejects.toThrow();
     });
+
+    it('Should show error when value is lower than the lowest range value', async () => {
+      const {getByTestId, getByText} = render(<WeatherCoordinates />);
+
+      fireEvent.changeText(getByTestId('weather-coordinates-latitude'), '-91');
+
+      await waitFor(() => {
+        getByText('Latitude must be a valid number');
+      });
+    });
+
+    it('Should show error when value is higher than the highest range value', async () => {
+      const {getByTestId, getByText} = render(<WeatherCoordinates />);
+
+      fireEvent.changeText(getByTestId('weather-coordinates-latitude'), '91');
+
+      await waitFor(() => {
+        getByText('Latitude must be a valid number');
+      });
+    });
+
+    it('Should show error when value is not a number', async () => {
+      const {getByTestId, getByText} = render(<WeatherCoordinates />);
+
+      fireEvent.changeText(getByTestId('weather-coordinates-latitude'), 'a');
+
+      await waitFor(() => {
+        getByText('Latitude must be a valid number');
+      });
+    });
+  });
+
+  describe('Longitude field', () => {
+    it('Should not show error when value is the lowest range value', () => {
+      const {getByTestId, findByText} = render(<WeatherCoordinates />);
+
+      fireEvent.changeText(
+        getByTestId('weather-coordinates-longitude'),
+        '-180',
+      );
+
+      return expect(
+        findByText('Longitude must be a valid number'),
+      ).rejects.toThrow();
+    });
+
+    it('Should not show error when value is the highest range value', () => {
+      const {getByTestId, findByText} = render(<WeatherCoordinates />);
+
+      fireEvent.changeText(getByTestId('weather-coordinates-longitude'), '180');
+
+      return expect(
+        findByText('Longitude must be a valid number'),
+      ).rejects.toThrow();
+    });
+
+    it('Should show error when value is lower than the lowest range value', async () => {
+      const {getByTestId, getByText} = render(<WeatherCoordinates />);
+
+      fireEvent.changeText(
+        getByTestId('weather-coordinates-longitude'),
+        '-181',
+      );
+
+      await waitFor(() => {
+        getByText('Longitude must be a valid number');
+      });
+    });
+
+    it('Should show error when value is higher than the highest range value', async () => {
+      const {getByTestId, getByText} = render(<WeatherCoordinates />);
+
+      fireEvent.changeText(getByTestId('weather-coordinates-longitude'), '181');
+
+      await waitFor(() => {
+        getByText('Longitude must be a valid number');
+      });
+    });
+
+    it('Should show error when value is not a number', async () => {
+      const {getByTestId, getByText} = render(<WeatherCoordinates />);
+
+      fireEvent.changeText(getByTestId('weather-coordinates-longitude'), 'a');
+
+      await waitFor(() => {
+        getByText('Longitude must be a valid number');
+      });
+    });
   });
 });

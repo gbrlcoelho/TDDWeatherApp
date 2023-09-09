@@ -2,28 +2,32 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {Controller, useForm} from 'react-hook-form';
-import {StyleSheet, TextInput, View} from 'react-native';
+import {StyleSheet, Text, TextInput, View} from 'react-native';
 import * as Yup from 'yup';
 import {Colors} from '../../screens/HomeScreen/constants';
 import Button from '../Button/Button';
 
 type FormValues = {
-  latitude: string;
-  longitude: string;
+  latitude: number;
+  longitude: number;
 };
 
 const validationSchema = Yup.object().shape({
-  latitude: Yup.string().required(),
-  longitude: Yup.string().required(),
+  latitude: Yup.number().required().min(-90).max(90),
+  longitude: Yup.number().required().min(-180).max(180),
 });
 
 const WeatherCoordinates = () => {
   const {navigate} = useNavigation();
-  const {handleSubmit, control} = useForm<FormValues>({
+  const {
+    handleSubmit,
+    control,
+    formState: {errors},
+  } = useForm<FormValues>({
     resolver: yupResolver(validationSchema),
     defaultValues: {
-      latitude: '',
-      longitude: '',
+      latitude: 0,
+      longitude: 0,
     },
     mode: 'onChange',
   });
@@ -52,6 +56,11 @@ const WeatherCoordinates = () => {
             />
           )}
         />
+        <View style={styles.errorContainer}>
+          {errors.latitude && (
+            <Text style={styles.error}>Latitude must be a valid number</Text>
+          )}
+        </View>
         <Controller
           control={control}
           name="longitude"
@@ -66,6 +75,11 @@ const WeatherCoordinates = () => {
             />
           )}
         />
+        <View style={styles.errorContainer}>
+          {errors.longitude && (
+            <Text style={styles.error}>Longitude must be a valid number</Text>
+          )}
+        </View>
       </View>
       <Button label="Find" onPress={handleSubmitCoordinates} />
     </View>
@@ -86,6 +100,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 8,
     color: Colors.WHITE,
+  },
+  errorContainer: {
+    height: 20,
+  },
+
+  error: {
+    color: Colors.ERROR,
+    marginHorizontal: 5,
+    marginBottom: 5,
   },
 });
 
