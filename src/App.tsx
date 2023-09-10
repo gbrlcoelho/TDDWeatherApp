@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import {Provider} from 'react-redux';
-import Router from './Routes/Router';
+import Router from './routes/Router';
 import {Colors} from './screens/HomeScreen/constants';
 import store from './store';
 

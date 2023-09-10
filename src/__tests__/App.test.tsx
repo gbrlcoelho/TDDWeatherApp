@@ -4,10 +4,10 @@ import {View} from 'react-native';
 import {Provider} from 'react-redux';
 
 import {App} from '../App';
-import Router from '../Routes/Router';
+import Router from '../routes/Router';
 import store from '../store';
 
-jest.mock('../Routes/Router', () => jest.fn());
+jest.mock('../routes/Router', () => jest.fn());
 jest.mock('react-redux', () => {
   return {
     ...jest.requireActual<object>('react-redux'),
