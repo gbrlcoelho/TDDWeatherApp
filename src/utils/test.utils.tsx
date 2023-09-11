@@ -2,9 +2,13 @@
 import {RenderOptions, render} from '@testing-library/react-native';
 import React, {ReactElement, ReactNode} from 'react';
 import {Provider} from 'react-redux';
-import {legacy_createStore as createStore} from 'redux';
+import {
+  Middleware,
+  applyMiddleware,
+  legacy_createStore as createStore,
+} from 'redux';
 import {runSaga} from 'redux-saga';
-import rootReducer from '../store/reducers';
+import rootReducer, {StateType} from '../store/reducers';
 
 type Action = {
   type?: any;
@@ -12,6 +16,15 @@ type Action = {
 };
 
 const store = createStore(rootReducer);
+
+export const mockStore = (interceptor?: jest.Mock) => {
+  const logger: Middleware<{}, StateType> = () => next => action => {
+    interceptor?.(action);
+    return next(action);
+  };
+
+  return createStore(rootReducer, applyMiddleware(logger));
+};
 
 export const recordSaga = async (worker: any, initialAction: Action) => {
   const dispatched: Array<Function> = [];
