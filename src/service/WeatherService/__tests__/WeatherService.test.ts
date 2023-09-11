@@ -28,7 +28,7 @@ describe('WeatherService', () => {
       windSpeed: 10,
       humidity: 100,
       pressure: 1000,
-      icon: 'http://openweathermap.org/img/wn/mock-icon@4x.png',
+      icon: 'https://openweathermap.org/img/wn/mock-icon@4x.png',
       description: 'mock-description',
       city: 'mock-city',
     };

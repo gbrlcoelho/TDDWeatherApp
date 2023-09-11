@@ -34,7 +34,7 @@ class WeatherService {
       humidity: data.main.humidity,
       pressure: data.main.pressure,
       icon: weather
-        ? `http://openweathermap.org/img/wn/${weather.icon}@4x.png`
+        ? `https://openweathermap.org/img/wn/${weather.icon}@4x.png`
         : null,
       description: weather?.description ?? null,
       city: data.name,
