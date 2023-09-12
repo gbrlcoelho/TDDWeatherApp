@@ -23,8 +23,6 @@ export function* weatherStartWorker(
 
     yield put(fetchWeatherSuccess(weather));
   } catch (error) {
-    error instanceof Error
-      ? yield put(fetchWeatherFailure(error.message))
-      : yield put(fetchWeatherFailure('Something went wrong'));
+    yield put(fetchWeatherFailure((error as Error).message));
   }
 }
