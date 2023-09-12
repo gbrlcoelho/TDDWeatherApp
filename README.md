@@ -1,79 +1,97 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Weather App with React Native and Test-Driven Development (TDD)
 
-# Getting Started
+This React Native application is designed to provide users with real-time weather information based on either their device's location or a specified latitude and longitude. This project was developed following the principles of Test-Driven Development (TDD) to ensure code quality and reliability.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Project Overview
 
-## Step 1: Start the Metro Server
+This Weather App consists of two screens:
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+1. **Location Input Screen**: This is the initial screen where users can either:
 
-To start Metro, run the following command from the _root_ of your React Native project:
+   - Input latitude and longitude coordinates.
+   - Use the "Weather at my position" button to automatically fetch the device's current location.
+
+2. **Weather Display Screen**: After providing location information on the first screen, users are directed to this screen. It displays the weather conditions for the specified location. If the user opted for the device's location, it will display the weather for the current device location.
+
+## Technology Stack
+
+The Weather App is built using the following technologies and libraries:
+
+- React Native: A popular framework for building cross-platform mobile applications.
+- Redux: For managing the application's state.
+- react-redux: To integrate Redux with the React Native application.
+- redux-saga: For managing side-effects and asynchronous actions.
+- Jest and @testing-library/react-native: For unit and integration testing.
+
+## Getting Started
+
+Follow these steps to set up and run the Weather App on your local development environment:
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/your-username/weather-app.git
+   cd weather-app
+   ```
+
+2. **Install the dependencies**:
+
+   ```bash
+   yarn install
+   ```
+
+3. **Run the App**:
+
+   ```bash
+   yarn start
+   ```
+
+   This will start the Metro Bundler. You can then run the app on an Android or iOS emulator, or on a physical device.
+
+   - For iOS
+
+   ```bash
+   cd ios && pod install && cd ..
+
+   yarn ios
+   ```
+
+   - For Android
+
+   ```bash
+   yarn android
+   ```
+
+## Development Process
+
+This project was developed using Test-Driven Development (TDD) principles. Each feature or component was developed in the following steps:
+
+1.  **Write Tests**: Before implementing a new feature or component, write tests that specify the expected behavior.
+
+2.  **Implement Code**: Develop the feature or component, ensuring it passes the tests.
+
+3.  **Refactor Code**: Refactor and optimize the code while keeping the tests passing.
+
+4.  **Repeat**: Continue this cycle for each new feature or component.
+
+## Testing
+
+This project uses Jest and @testing-library/react-native for unit and integration testing. To run the tests, use the following command:
 
 ```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
+yarn test
 ```
 
-## Step 2: Start your Application
+## Screenshots
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+### Location Input Screen
 
-### For Android
+![Location Input Screen](./screenshots/location-input-screen.png)
 
-```bash
-# using npm
-npm run android
+### Weather Display Screen
 
-# OR using Yarn
-yarn android
-```
+![Weather Display Screen](./screenshots/weather-display-screen.png)
 
-### For iOS
+## Conclusion
 
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+This project was developed as part of the [[TDD] Learn Test Driven Development with React Native](https://www.https://www.udemy.com/course/tdd-learn-test-driven-development-with-react-native/) course on Udemy. It was a great learning experience and I look forward to applying the knowledge gained from this course to future projects.
